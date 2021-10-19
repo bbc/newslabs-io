@@ -24,6 +24,8 @@ The `npm start` script launches the `./src/server.ts` file, with the webpack mid
 On `/` it serves the index.html creared by webpack to load the client react application.
 It also serves other routes as defined by the API express app.
 
+There is no hot module reloading or anything like that in the browser.
+
 #### build
 The `npm build` script runs two commands:
 - webpack: To build the client application. This will be output into `dist/client`.
