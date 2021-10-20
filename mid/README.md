@@ -32,3 +32,8 @@ The `npm build` script runs two commands:
 - tsc: To build the server-side application. This will be output into `dist/api`.
 
 Note that webpack uses a different tsconfig file than tsc does.
+
+
+#### test
+The `npm test` script runs one command:
+- mocha: To run the unit tests for the server-side application.
