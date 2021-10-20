@@ -7,7 +7,9 @@
     "build": "rm -rf dist && webpack && tsc",
     "start": "ts-node ./src/server.ts",
     "test": "mocha",
-    "lint": "eslint \"**/*.{ts,tsx}\""
+    "lint": "eslint \"**/*.{ts,tsx}\"",
+    "pretest": "npm run setup:db",
+    "setup:db": "sqlite3 ./sql/dummy.db < ./sql/createSchema.sql && sqlite3 ./sql/dummy.db < ./sql/createData.sql"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +32,7 @@
     "@types/node": "^16.11.1",
     "@types/react": "^17.0.30",
     "@types/react-dom": "^17.0.9",
+    "@types/sinon": "^10.0.4",
     "@types/supertest": "^2.0.11",
     "@types/webpack-dev-middleware": "^5.0.2",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
@@ -40,6 +43,7 @@
     "express": "^4.17.1",
     "html-webpack-plugin": "^5.4.0",
     "mocha": "^9.1.3",
+    "sinon": "^11.1.2",
     "style-loader": "^3.3.0",
     "supertest": "^6.1.6",
     "ts-loader": "^9.2.6",
@@ -54,7 +58,6 @@
     "@types/knex": "^0.16.1",
     "@types/sqlite3": "^3.1.7",
     "knex": "^0.95.11",
-    "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "sqlite3": "^5.0.2"
