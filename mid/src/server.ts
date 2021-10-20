@@ -1,11 +1,12 @@
 import express from "express";
-import webpack from 'webpack';
+import webpack, { Configuration } from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import api from './api/index'
 
+import config from '../webpack.config.js';
+
 const app = express();
-const config = require('../webpack.config.js');
-const compiler = webpack(config);
+const compiler = webpack(config as Configuration);
 
 const port = 8080;
 

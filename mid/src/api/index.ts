@@ -11,7 +11,7 @@ api.get("/status", (req, res) => {
 
 api.use(users);
 
-if (process.env['NODE_ENV'] === 'production') {
+if (process.env['NODE_ENV'] === "production") {
     api.listen(port, () => {
         console.log(`server started at http://localhost:${port}`);
     });
