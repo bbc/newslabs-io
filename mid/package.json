@@ -51,8 +51,12 @@
     "webpack-dev-server": "^4.3.1"
   },
   "dependencies": {
+    "@types/knex": "^0.16.1",
+    "@types/sqlite3": "^3.1.7",
+    "knex": "^0.95.11",
     "lodash": "^4.17.21",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "sqlite3": "^5.0.2"
   }
 }

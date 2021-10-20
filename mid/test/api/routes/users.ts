@@ -13,6 +13,6 @@ describe('/users', () => {
     const { body } = await request(api)
       .get('/users')
     
-    assert.deepEqual(body, [{ id: '1', name: 'santa clause' }]);
+    assert.deepEqual(body, [{ id: 1, name: 'Santa Claus' }]);
   });
 });
