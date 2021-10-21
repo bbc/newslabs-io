@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from "react-router-dom";
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import PeopleIcon from '@mui/icons-material/People';
 import { Box, Toolbar, Drawer, List, ListItem, ListItemIcon, ListItemText, Divider } from '@mui/material';
@@ -16,21 +17,21 @@ export const Navigation = <Drawer
   <Toolbar />
   <Box sx={{ overflow: 'auto' }}>
     <List>
-      <ListItem button key="Submissions">
-        <ListItemIcon>
-          <InboxIcon />
-        </ListItemIcon>
-        <ListItemText primary="Submissions" />
-      </ListItem>
+        <ListItem component={Link} to="/submissions" key="Submissions">
+          <ListItemIcon>
+            <InboxIcon />
+          </ListItemIcon>
+          <ListItemText primary="Submissions" />
+        </ListItem>
     </List>
     <Divider />
     <List>
-      <ListItem button key="Users">
-        <ListItemIcon>
-          <PeopleIcon />
-        </ListItemIcon>
-        <ListItemText primary="Users" />
-      </ListItem>
+        <ListItem component={Link} to="/users" key="Users">
+          <ListItemIcon>
+            <PeopleIcon />
+          </ListItemIcon>
+          <ListItemText primary="Users" />
+        </ListItem>
     </List>
     <Divider />
   </Box>
