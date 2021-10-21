@@ -1,4 +1,4 @@
-# Newslabs XOXO
+# Newslabs I/O
 
 ## App Structure
 

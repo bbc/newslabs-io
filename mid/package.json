@@ -27,7 +27,10 @@
   },
   "eslintConfig": {
     "root": true,
-    "ignorePatterns": ["node_modules/**/*.js", "dist/**/*.js"],
+    "ignorePatterns": [
+      "node_modules/**/*.js",
+      "dist/**/*.js"
+    ],
     "parser": "@typescript-eslint/parser",
     "plugins": [
       "@typescript-eslint"
@@ -38,6 +41,10 @@
     ],
     "rules": {
       "semi": [
+        "error",
+        "always"
+      ],
+      "object-curly-spacing": [
         "error",
         "always"
       ],
@@ -99,6 +106,10 @@
     "webpack-dev-server": "^4.3.1"
   },
   "dependencies": {
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.4",
+    "@mui/material": "^5.0.4",
     "@types/knex": "^0.16.1",
     "@types/sqlite3": "^3.1.7",
     "knex": "^0.95.11",
