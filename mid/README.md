@@ -1,4 +1,4 @@
-# Newslabs I/O
+# News Labs I/O
 
 ## Requirements
 This has been tested using Node.js 16 on macOS 11.
