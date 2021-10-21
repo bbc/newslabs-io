@@ -23,3 +23,18 @@ export async function getUserAndRole(id: string) {
     .leftJoin('roles', 'roles.id', '=', 'users.role_id')
     .where('users.id', id);
 }
+
+export async function getSubmissionsAndUsers() {
+  return await knex
+    .from('submissions')
+    .select('submissions.id', 'title', 'text', 'submissions.created_at', 'user_id', 'username')
+    .leftJoin('users', 'users.id', '=', 'submissions.user_id');
+}
+
+export async function getSubmissionAndUser(id: string) {
+  return await knex
+    .from('submissions')
+    .select('submissions.id', 'title', 'text', 'submissions.created_at', 'user_id', 'username')
+    .leftJoin('users', 'users.id', '=', 'submissions.user_id')
+    .where('submissions.id', id);
+}

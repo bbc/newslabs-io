@@ -6,7 +6,7 @@ import * as db from '../../../src/api/db';
 
 const sandbox = sinon.createSandbox();
 
-describe('GET /users', () => {
+describe('GET /submissions', () => {
 
   afterEach(() => {
     sandbox.restore();
@@ -14,39 +14,39 @@ describe('GET /users', () => {
 
   it('returns a 200 Status Code', async () => {
     await request(api)
-      .get('/users')
+      .get('/submissions')
       .expect(200);
   });
 
-  it('returns a list of users', async () => {
+  it('returns a list of submissions', async () => {
     const { body } = await request(api)
-      .get('/users');
+      .get('/submissions');
 
     assert.lengthOf(body, 3);
   });
 
   context('DB Failure', () => {
     it('returns a 500 Status Code', async () => {
-      sandbox.stub(db, 'getUsersAndRoles').rejects(new Error());
+      sandbox.stub(db, 'getSubmissionsAndUsers').rejects(new Error());
 
       await request(api)
-        .get('/users')
+        .get('/submissions')
         .expect(500);
     });
 
     it('logs the error', async () => {
-      sandbox.stub(db, 'getUsersAndRoles').rejects(new Error('A teststring'));
+      sandbox.stub(db, 'getSubmissionsAndUsers').rejects(new Error('A teststring'));
       const logSpy = sandbox.spy(console, 'log');
 
       await request(api)
-        .get('/users');
+        .get('/submissions');
 
       sinon.assert.calledWith(logSpy, 'Database Error: A teststring');
     });
   });
 });
 
-describe('GET /users/:id', () => {
+describe('GET /submissions/:id', () => {
 
   afterEach(() => {
     sandbox.restore();
@@ -54,33 +54,34 @@ describe('GET /users/:id', () => {
 
   it('returns a 200 Status Code', async () => {
     await request(api)
-      .get('/users')
+      .get('/submissions')
       .expect(200);
   });
 
-  it('returns the requested user', async () => {
+  it('returns the requested submission', async () => {
     const { body } = await request(api)
-      .get('/users/1');
+      .get('/submissions/1');
 
     assert.strictEqual(body.id, 1);
-    assert.strictEqual(body.username, 'John');
+    assert.strictEqual(body.title, 'Tree in Birmingham');
+    assert.strictEqual(body.username, 'Aisha');
   });
 
   context('DB Failure', () => {
     it('returns a 500 Status Code', async () => {
-      sandbox.stub(db, 'getUserAndRole').rejects(new Error());
+      sandbox.stub(db, 'getSubmissionAndUser').rejects(new Error());
 
       await request(api)
-        .get('/users/1')
+        .get('/submissions/1')
         .expect(500);
     });
 
     it('logs the error', async () => {
-      sandbox.stub(db, 'getUserAndRole').rejects(new Error('A teststring'));
+      sandbox.stub(db, 'getSubmissionAndUser').rejects(new Error('A teststring'));
       const logSpy = sandbox.spy(console, 'log');
 
       await request(api)
-        .get('/users/1');
+        .get('/submissions/1');
 
       sinon.assert.calledWith(logSpy, 'Database Error: A teststring');
     });

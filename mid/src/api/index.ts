@@ -1,5 +1,6 @@
 import express from "express";
 import users from './routes/users';
+import submissions from './routes/submissions';
 
 const api = express();
 
@@ -10,6 +11,7 @@ api.get("/status", (req, res) => {
 });
 
 api.use(users);
+api.use(submissions);
 
 if (process.env['NODE_ENV'] === "production") {
     api.listen(port, () => {
