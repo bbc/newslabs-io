@@ -1,5 +1,25 @@
 # Newslabs I/O
 
+## Requirements
+This has been tested using Node.js 16 on macOS 11.
+
+## Used Libraries
+### Serverside
+- [express](https://www.npmjs.com/package/express)
+- [knex](https://www.npmjs.com/package/knex) with [sqlite3](https://www.npmjs.com/package/sqlite3)
+
+### Clientside
+- [react](https://www.npmjs.com/package/react) 17
+- [react-router](https://www.npmjs.com/package/react-router-dom) 
+- [mui](https://mui.com/) (Material UI)
+
+### Supporting
+- [jest](https://jestjs.io/) for tests (running, mocking, asserting)
+- [supertest](https://www.npmjs.com/package/supertest) for backend tests (environment for server-side app)
+- [enzyme](https://www.npmjs.com/package/enzyme) 3 for frontend tests (renders react components)
+- [webpack](https://webpack.js.org/) for bundling react
+- [eslint](https://www.npmjs.com/package/eslint) for linting
+
 ## App Structure
 
 ### Client
