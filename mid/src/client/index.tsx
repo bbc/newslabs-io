@@ -19,10 +19,10 @@ const App = () => {
           {Navigation}
           <Switch>
             <Route path="/users">
-              {Users}
+              <Users />
             </Route>
             <Route path="/submissions">
-              {Submissions}
+              <Submissions />
             </Route>
             <Route path="/">
               {Home}

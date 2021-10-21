@@ -20,4 +20,4 @@ INSERT INTO submissions(user_id, title, text)
 VALUES(2, 'Tree in Birmingham 2', 'It''s back up');
 
 INSERT INTO submissions(user_id, title, text)
-VALUES(3, 'Zoom Hackin in the Lords', 'I have some details about how the Lords have been hacked!');
+VALUES(3, 'Zoom Hacking in the Lords', 'I have some details about how the Lords have been hacked!');
