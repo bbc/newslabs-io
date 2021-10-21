@@ -16,7 +16,7 @@ app.use(
     })
 );
 
-app.use(api);
+app.use('/api', api);
 
 app.listen(port, () => {
     console.log(`server started at http://localhost:${port}`);
