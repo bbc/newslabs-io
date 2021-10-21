@@ -17,21 +17,21 @@ export const Navigation = <Drawer
   <Toolbar />
   <Box sx={{ overflow: 'auto' }}>
     <List>
-        <ListItem component={Link} to="/submissions" key="Submissions">
-          <ListItemIcon>
-            <InboxIcon />
-          </ListItemIcon>
-          <ListItemText primary="Submissions" />
-        </ListItem>
+      <ListItem component={Link} to="/submissions" key="Submissions">
+        <ListItemIcon>
+          <InboxIcon />
+        </ListItemIcon>
+        <ListItemText primaryTypographyProps={{ fontWeight: 'bold' }} primary="Submissions" />
+      </ListItem>
     </List>
     <Divider />
     <List>
-        <ListItem component={Link} to="/users" key="Users">
-          <ListItemIcon>
-            <PeopleIcon />
-          </ListItemIcon>
-          <ListItemText primary="Users" />
-        </ListItem>
+      <ListItem component={Link} to="/users" key="Users">
+        <ListItemIcon>
+          <PeopleIcon />
+        </ListItemIcon>
+        <ListItemText primaryTypographyProps={{ fontWeight: 'bold' }} primary="Users" />
+      </ListItem>
     </List>
     <Divider />
   </Box>
