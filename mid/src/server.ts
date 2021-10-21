@@ -1,7 +1,7 @@
 import express from "express";
 import webpack, { Configuration } from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
-import api from './api/index'
+import api from './api/index';
 
 import config from '../webpack.config.js';
 

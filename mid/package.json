@@ -8,6 +8,7 @@
     "start": "ts-node ./src/server.ts",
     "test": "mocha",
     "lint": "eslint \"**/*.{ts,tsx}\"",
+    "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "pretest": "npm run setup:db",
     "setup:db": "sqlite3 ./sql/dummy.db < ./sql/createSchema.sql && sqlite3 ./sql/dummy.db < ./sql/createData.sql"
   },
@@ -23,6 +24,48 @@
       "ts"
     ],
     "timeout": 5000
+  },
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+      "semi": [
+        "error",
+        "always"
+      ],
+      "@typescript-eslint/consistent-type-definitions": [
+        "error",
+        "interface"
+      ],
+      "@typescript-eslint/array-type": [
+        "error",
+        {
+          "default": "array"
+        }
+      ],
+      "@typescript-eslint/consistent-type-assertions": "warn",
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          "selector": [
+            "variable"
+          ],
+          "format": [
+            "camelCase",
+            "UPPER_CASE",
+            "PascalCase"
+          ]
+        }
+      ]
+    }
   },
   "devDependencies": {
     "@types/chai": "^4.2.22",

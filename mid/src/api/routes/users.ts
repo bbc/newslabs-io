@@ -14,7 +14,7 @@ router.get('/users', async (req, res) => {
     const user = await getUsersAndRoles();
     res.json(user);
   } catch (error) {
-    handleError(res, error as Error)
+    handleError(res, error as Error);
   }
 });
 
@@ -24,7 +24,7 @@ router.get('/users/:id', async (req, res) => {
     const [user] = await getUserAndRole(userId);
     res.json(user);
   } catch (error) {
-    handleError(res, error as Error)
+    handleError(res, error as Error);
   }
 });
 

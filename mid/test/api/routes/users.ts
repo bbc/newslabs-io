@@ -20,7 +20,7 @@ describe('/users', () => {
 
   it('returns a list of users', async () => {
     const { body } = await request(api)
-      .get('/users')
+      .get('/users');
 
     assert.lengthOf(body, 3);
   });
@@ -42,7 +42,7 @@ describe('/users', () => {
         .get('/users');
 
       sinon.assert.calledWith(logSpy, 'Database Error: A teststring');
-    })
+    });
   });
 });
 
@@ -60,7 +60,7 @@ describe('/users/:id', () => {
 
   it('returns the requested user', async () => {
     const { body } = await request(api)
-      .get('/users/1')
+      .get('/users/1');
 
     assert.strictEqual(body.id, 1);
     assert.strictEqual(body.username, 'John');
@@ -83,6 +83,6 @@ describe('/users/:id', () => {
         .get('/users/1');
 
       sinon.assert.calledWith(logSpy, 'Database Error: A teststring');
-    })
+    });
   });
 });
