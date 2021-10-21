@@ -56,4 +56,4 @@ Note that webpack uses a different tsconfig file than tsc does.
 
 #### test
 The `npm test` script runs one command:
-- mocha: To run the unit tests for the server-side application.
+- jest: To run the unit tests for the backend and frontend applications
