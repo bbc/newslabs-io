@@ -1,15 +1,11 @@
-import { assert } from 'chai';
-import sinon from 'sinon';
 import request from 'supertest';
 import api from '../../../src/api/index';
 import * as db from '../../../src/api/db';
 
-const sandbox = sinon.createSandbox();
-
 describe('GET /submissions', () => {
 
   afterEach(() => {
-    sandbox.restore();
+    jest.restoreAllMocks();
   });
 
   it('returns a 200 Status Code', async () => {
@@ -22,12 +18,16 @@ describe('GET /submissions', () => {
     const { body } = await request(api)
       .get('/submissions');
 
-    assert.lengthOf(body, 3);
+    expect(body.length).toBe(3);
   });
 
-  context('DB Failure', () => {
+  describe('DB Failure', () => {
+    beforeEach(() => {
+      jest.spyOn(console, 'log').mockImplementation(() => jest.fn());
+    });
+
     it('returns a 500 Status Code', async () => {
-      sandbox.stub(db, 'getSubmissionsAndUsers').rejects(new Error());
+      jest.spyOn(db, 'getSubmissionsAndUsers').mockRejectedValue(new Error());
 
       await request(api)
         .get('/submissions')
@@ -35,13 +35,12 @@ describe('GET /submissions', () => {
     });
 
     it('logs the error', async () => {
-      sandbox.stub(db, 'getSubmissionsAndUsers').rejects(new Error('A teststring'));
-      const logSpy = sandbox.stub(console, 'log');
+      jest.spyOn(db, 'getSubmissionsAndUsers').mockRejectedValue(new Error('A teststring'));
 
       await request(api)
         .get('/submissions');
 
-      sinon.assert.calledWith(logSpy, 'Database Error: A teststring');
+      expect(console.log).toHaveBeenCalledWith('Database Error: A teststring');
     });
   });
 });
@@ -49,7 +48,7 @@ describe('GET /submissions', () => {
 describe('GET /submissions/:id', () => {
 
   afterEach(() => {
-    sandbox.restore();
+    jest.restoreAllMocks();
   });
 
   it('returns a 200 Status Code', async () => {
@@ -62,14 +61,18 @@ describe('GET /submissions/:id', () => {
     const { body } = await request(api)
       .get('/submissions/1');
 
-    assert.strictEqual(body.id, 1);
-    assert.strictEqual(body.title, 'Tree in Birmingham');
-    assert.strictEqual(body.username, 'Aisha');
+    expect(body.id).toBe(1);
+    expect(body.title).toBe('Tree in Birmingham');
+    expect(body.username).toBe('Aisha');
   });
 
-  context('DB Failure', () => {
+  describe('DB Failure', () => {
+    beforeEach(() => {
+      jest.spyOn(console, 'log').mockImplementation(() => jest.fn());
+    });
+
     it('returns a 500 Status Code', async () => {
-      sandbox.stub(db, 'getSubmissionAndUser').rejects(new Error());
+      jest.spyOn(db, 'getSubmissionAndUser').mockRejectedValue(new Error());
 
       await request(api)
         .get('/submissions/1')
@@ -77,13 +80,12 @@ describe('GET /submissions/:id', () => {
     });
 
     it('logs the error', async () => {
-      sandbox.stub(db, 'getSubmissionAndUser').rejects(new Error('A teststring'));
-      const logSpy = sandbox.stub(console, 'log');
+      jest.spyOn(db, 'getSubmissionAndUser').mockRejectedValue(new Error('A teststring'));
 
       await request(api)
         .get('/submissions/1');
 
-      sinon.assert.calledWith(logSpy, 'Database Error: A teststring');
+        expect(console.log).toHaveBeenCalledWith('Database Error: A teststring');
     });
   });
 });
