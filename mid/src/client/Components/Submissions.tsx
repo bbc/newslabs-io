@@ -2,9 +2,17 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Box, Toolbar, Typography } from '@mui/material';
 
+interface Submission {
+  id: number,
+  title: string,
+  text: string,
+  username: string,
+  created_at: string
+}
+
 export function Submissions() {
-  const [submissions, setSubmissions] = useState([]);
-  const [hasDoneInitialFetch, setHasDoneInitialFetch] = useState(false);
+  const [submissions, setSubmissions] = useState<Submission[]>([]);
+  const [hasDoneInitialFetch, setHasDoneInitialFetch] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchSubmissions() {

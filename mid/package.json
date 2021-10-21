@@ -35,13 +35,23 @@
     ],
     "parser": "@typescript-eslint/parser",
     "plugins": [
+      "react",
+      "react-hooks",
       "@typescript-eslint"
     ],
     "extends": [
       "eslint:recommended",
-      "plugin:@typescript-eslint/recommended"
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended"
     ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
     "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
       "semi": [
         "error",
         "always"
@@ -94,6 +104,8 @@
     "css-loader": "^6.4.0",
     "enzyme": "^3.11.0",
     "eslint": "^8.0.1",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "express": "^4.17.1",
     "html-webpack-plugin": "^5.4.0",
     "jest": "^27.3.1",

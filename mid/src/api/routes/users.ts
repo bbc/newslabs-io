@@ -16,7 +16,7 @@ router.get('/users', async (req, res) => {
 router.get('/users/:id', async (req, res) => {
   const userId = req.params['id'];
   try {
-    const [user] = await getUserAndRole(userId);
+    const user = await getUserAndRole(userId);
     res.json(user);
   } catch (error) {
     handleError(res, error as Error);

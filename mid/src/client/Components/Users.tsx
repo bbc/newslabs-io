@@ -2,9 +2,16 @@ import * as React from 'react';
 import { Box, Toolbar, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 
+interface User {
+  username: string,
+  id: number,
+  description: string,
+  created_at: string
+}
+
 export function Users() {
-  const [users, setUsers] = useState([]);
-  const [hasDoneInitialFetch, setHasDoneInitialFetch] = useState(false);
+  const [users, setUsers] = useState<User[]>([]);
+  const [hasDoneInitialFetch, setHasDoneInitialFetch] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchUsers() {

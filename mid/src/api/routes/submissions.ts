@@ -16,7 +16,7 @@ router.get('/submissions', async (req, res) => {
 router.get('/submissions/:id', async (req, res) => {
   const submissionId = req.params['id'];
   try {
-    const [submission] = await getSubmissionAndUser(submissionId);
+    const submission = await getSubmissionAndUser(submissionId);
     res.json(submission);
   } catch (error) {
     handleError(res, error as Error);
