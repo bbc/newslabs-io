@@ -36,7 +36,7 @@ describe('GET /users', () => {
 
     it('logs the error', async () => {
       sandbox.stub(db, 'getUsersAndRoles').rejects(new Error('A teststring'));
-      const logSpy = sandbox.spy(console, 'log');
+      const logSpy = sandbox.stub(console, 'log');
 
       await request(api)
         .get('/users');
@@ -77,7 +77,7 @@ describe('GET /users/:id', () => {
 
     it('logs the error', async () => {
       sandbox.stub(db, 'getUserAndRole').rejects(new Error('A teststring'));
-      const logSpy = sandbox.spy(console, 'log');
+      const logSpy = sandbox.stub(console, 'log');
 
       await request(api)
         .get('/users/1');

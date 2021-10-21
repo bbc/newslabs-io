@@ -36,7 +36,7 @@ describe('GET /submissions', () => {
 
     it('logs the error', async () => {
       sandbox.stub(db, 'getSubmissionsAndUsers').rejects(new Error('A teststring'));
-      const logSpy = sandbox.spy(console, 'log');
+      const logSpy = sandbox.stub(console, 'log');
 
       await request(api)
         .get('/submissions');
@@ -78,7 +78,7 @@ describe('GET /submissions/:id', () => {
 
     it('logs the error', async () => {
       sandbox.stub(db, 'getSubmissionAndUser').rejects(new Error('A teststring'));
-      const logSpy = sandbox.spy(console, 'log');
+      const logSpy = sandbox.stub(console, 'log');
 
       await request(api)
         .get('/submissions/1');
