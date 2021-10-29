@@ -1,13 +1,7 @@
 import * as React from 'react';
 import { Box, Toolbar, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-
-interface User {
-  username: string,
-  id: number,
-  description: string,
-  created_at: string
-}
+import { User } from '../model';
 
 export function Users() {
   const [users, setUsers] = useState<User[]>([]);

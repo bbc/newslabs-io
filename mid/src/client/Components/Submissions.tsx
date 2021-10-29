@@ -1,14 +1,8 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { Box, Toolbar, Typography } from '@mui/material';
-
-interface Submission {
-  id: number,
-  title: string,
-  text: string,
-  username: string,
-  created_at: string
-}
+import { Box, Grid, Toolbar, Typography } from '@mui/material';
+import { Submission } from '../model';
+import SubmissionCard from './SubmissionCard';
 
 export function Submissions() {
   const [submissions, setSubmissions] = useState<Submission[]>([]);
@@ -27,19 +21,23 @@ export function Submissions() {
     }
   });
 
+  function createSubmissionsCard(submission: Submission): JSX.Element {
+    return (
+      <Grid key={submission.id} item md={3}>
+        {SubmissionCard(submission)}
+      </Grid>
+    );
+  }
+
   return (
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
       <Toolbar />
-      {hasDoneInitialFetch
-        ? submissions.map(submission => {
-          return (
-            <Typography paragraph key={"submission-" + submission.id}>
-              {submission.title}: {submission.text} ({submission.created_at}, {submission.username})
-            </Typography>
-          );
-        })
-        : <Typography>LOADING</Typography>
-      }
+      <Grid container spacing={3}>
+        {hasDoneInitialFetch
+          ? submissions.map(createSubmissionsCard)
+          : <Typography>LOADING</Typography>
+        }
+      </Grid>
     </Box>
   );
 }
