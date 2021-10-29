@@ -22,6 +22,8 @@ This has been tested using Node.js 16 on macOS 11.
 
 ## App Structure
 
+![Architecture](architecture.png)
+
 ### Client
 
 The source code for this is in the `src/client` directory.
