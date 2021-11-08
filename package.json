@@ -7,9 +7,11 @@
     "build": "rm -rf dist && webpack && tsc",
     "start": "ts-node ./src/server.ts",
     "test": "jest",
+    "posttest": "npm run lint",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "pretest": "npm run setup:db",
+    "prestart": "npm run setup:db",
     "setup:db": "sqlite3 ./sql/dummy.db < ./sql/createSchema.sql && sqlite3 ./sql/dummy.db < ./sql/createData.sql"
   },
   "keywords": [],
