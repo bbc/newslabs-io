@@ -56,6 +56,7 @@ This app includes a stand-alone express-based API server application, written in
 
 ### Scripts
 #### start
+The `npm prestart` script will execute first, which initialises the development database (in `/sql/dev.db`).
 The `npm start` script launches the `./src/server.ts` file, with the webpack middleware, and including the API express app.
 
 On `/` it serves the index.html creared by webpack to load the client react application.
@@ -72,5 +73,6 @@ Note that webpack uses a different tsconfig file than tsc does.
 
 
 #### test
+The `npm pretest` script will execute first, which initialises the development database (in `/sql/dev.db`).
 The `npm test` script runs one command:
 - jest: To run the unit tests for the backend and frontend applications
