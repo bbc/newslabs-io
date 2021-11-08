@@ -1,6 +1,8 @@
 # News Labs I/O
 A News Labs application prototype to be used during code interviews.
 
+The idea of this application is to allow the public to submit tips to the BBC in a secure manner and for journalists to manage the incoming tips and react to them.
+
 ## Requirements
 This has been tested using Node.js 16 on macOS 11.
 
