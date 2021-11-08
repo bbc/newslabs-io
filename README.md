@@ -11,8 +11,12 @@ This has been tested using Node.js 16 on macOS 11.
 - You should be able to open the application in the browser: http://localhost:8080
 - The "Submissions" tab should show three submissions like the following screenshot:
 ![Submissions](submissions.png)
+- Note there is no Hot Module Reload - when editing the client app, webpack will recompile on save, but in order to see the changes in the browser, a manual reload is required.
+
 
 If you get stuck with any of the above, please reach out to [coding-exercises@bbcnewslabs.co.uk](mailto:coding-exercises@bbcnewslabs.co.uk) with the position you're applying for and the issue you're having.
+In interview, we want to use your machine.  We will be using Zoom and the screen share functionality, which works best with the app installed. Please get in touch if that is not possible.
+Please familiarise yourself with a drawing tool to touch on architecture diagram during the interview. Popular and free online ones are excalidraw, draw.io or Google Draw (the latter requires a Google Account).
 
 ## Used Libraries
 ### Serverside
