@@ -31,14 +31,6 @@ export async function getUsersAndRoles(): Promise<User[]> {
     .leftJoin('roles', 'roles.id', '=', 'users.role_id');
 }
 
-export async function getUserAndRole(id: string): Promise<User> {
-  return (await knex
-    .from('users')
-    .select('username', 'created_at', 'users.id', 'role_id', 'description')
-    .leftJoin('roles', 'roles.id', '=', 'users.role_id')
-    .where('users.id', id))[0];
-}
-
 export async function getSubmissionsAndUsers(): Promise<Submission[]> {
   return await knex
     .from('submissions')
