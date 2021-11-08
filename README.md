@@ -1,4 +1,5 @@
 # News Labs I/O
+A News Labs application prototype to be used during code interviews.
 
 ## Requirements
 This has been tested using Node.js 16 on macOS 11.
