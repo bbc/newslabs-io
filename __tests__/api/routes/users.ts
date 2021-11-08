@@ -24,23 +24,13 @@ describe('GET /users', () => {
   describe('DB Failure', () => {
     beforeEach(() => {
       jest.spyOn(console, 'log').mockImplementation(() => jest.fn());
+      jest.spyOn(db, 'getUsersAndRoles').mockRejectedValue(new Error());
     });
 
     it('returns a 500 Status Code', async () => {
-      jest.spyOn(db, 'getUsersAndRoles').mockRejectedValue(new Error());
-      
       await request(api)
-      .get('/users')
-      .expect(500);
-    });
-    
-    it('logs the error', async () => {
-      jest.spyOn(db, 'getUsersAndRoles').mockRejectedValue(new Error('A teststring'));
-
-      await request(api)
-        .get('/users');
-
-      expect(console.log).toHaveBeenCalledWith('Database Error: A teststring');
+        .get('/users')
+        .expect(500);
     });
   });
 });
@@ -68,23 +58,13 @@ describe('GET /users/:id', () => {
   describe('DB Failure', () => {
     beforeEach(() => {
       jest.spyOn(console, 'log').mockImplementation(() => jest.fn());
+      jest.spyOn(db, 'getUserAndRole').mockRejectedValue(new Error());
     });
 
     it('returns a 500 Status Code', async () => {
-      jest.spyOn(db, 'getUserAndRole').mockRejectedValue(new Error());
-
       await request(api)
         .get('/users/1')
         .expect(500);
-    });
-
-    it('logs the error', async () => {
-      jest.spyOn(db, 'getUserAndRole').mockRejectedValue(new Error('A teststring'));
-
-      await request(api)
-        .get('/users/1');
-
-      expect(console.log).toHaveBeenCalledWith('Database Error: A teststring');
     });
   });
 });

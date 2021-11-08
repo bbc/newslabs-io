@@ -20,27 +20,17 @@ describe('GET /submissions', () => {
 
     expect(body.length).toBe(3);
   });
-
+  
   describe('DB Failure', () => {
     beforeEach(() => {
       jest.spyOn(console, 'log').mockImplementation(() => jest.fn());
+      jest.spyOn(db, 'getSubmissionsAndUsers').mockRejectedValue(new Error('A teststring'));
     });
 
     it('returns a 500 Status Code', async () => {
-      jest.spyOn(db, 'getSubmissionsAndUsers').mockRejectedValue(new Error());
-
       await request(api)
         .get('/submissions')
         .expect(500);
-    });
-
-    it('logs the error', async () => {
-      jest.spyOn(db, 'getSubmissionsAndUsers').mockRejectedValue(new Error('A teststring'));
-
-      await request(api)
-        .get('/submissions');
-
-      expect(console.log).toHaveBeenCalledWith('Database Error: A teststring');
     });
   });
 });
@@ -62,30 +52,18 @@ describe('GET /submissions/:id', () => {
       .get('/submissions/1');
 
     expect(body.id).toBe(1);
-    expect(body.title).toBe('Tree in Birmingham');
-    expect(body.username).toBe('Aisha');
   });
 
   describe('DB Failure', () => {
     beforeEach(() => {
       jest.spyOn(console, 'log').mockImplementation(() => jest.fn());
+      jest.spyOn(db, 'getSubmissionAndUser').mockRejectedValue(new Error('A teststring'));
     });
 
     it('returns a 500 Status Code', async () => {
-      jest.spyOn(db, 'getSubmissionAndUser').mockRejectedValue(new Error());
-
       await request(api)
         .get('/submissions/1')
         .expect(500);
-    });
-
-    it('logs the error', async () => {
-      jest.spyOn(db, 'getSubmissionAndUser').mockRejectedValue(new Error('A teststring'));
-
-      await request(api)
-        .get('/submissions/1');
-
-        expect(console.log).toHaveBeenCalledWith('Database Error: A teststring');
     });
   });
 });
