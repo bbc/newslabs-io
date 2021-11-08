@@ -3,6 +3,17 @@
 ## Requirements
 This has been tested using Node.js 16 on macOS 11.
 
+### Before the interview
+- Ensure you have a working Node.js environment
+- Install dependencies: `npm install`
+- The tests should all pass: `npm test`
+- The application should run: `npm start`
+- You should be able to open the application in the browser: http://localhost:8080
+- The "Submissions" tab should show three submissions like the following screenshot:
+![Submissions](submissions.png)
+
+If you get stuck with any of the above, please reach out to [coding-exercises@bbcnewslabs.co.uk](mailto:coding-exercises@bbcnewslabs.co.uk) with the position you're applying for and the issue you're having.
+
 ## Used Libraries
 ### Serverside
 - [express](https://www.npmjs.com/package/express)
