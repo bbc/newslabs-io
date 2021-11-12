@@ -14,7 +14,7 @@ INSERT INTO users(id, username, role_id)
 VALUES(3, 'Kyra', 2);
 
 INSERT INTO submissions(user_id, title, text, location)
-VALUES(2, 'Tree in Birmingham', 'It fell over!', '52.4862,1.8904');
+VALUES(2, 'Tree in Birmingham', 'It fell over!', '52.4862,-1.8904');
 
 
 INSERT INTO submissions(user_id, title, text)
