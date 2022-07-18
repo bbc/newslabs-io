@@ -4,7 +4,7 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import history from 'connect-history-api-fallback';
 import api from './api/index';
 
-import config from '../webpack.config.js';
+import config from './client/webpack.config.js';
 
 const app = express();
 const compiler = webpack(config as Configuration);
