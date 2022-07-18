@@ -33,6 +33,7 @@ module.exports = {
   },
   devServer: {
     static: './dist',
+    historyApiFallback: true
   },
   plugins: [
     new HtmlWebpackPlugin({

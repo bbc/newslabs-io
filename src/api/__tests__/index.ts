@@ -1,5 +1,5 @@
 import request from 'supertest';
-import api from '../../src/api/index';
+import api from '../index';
 
 describe('index', () => {
   describe('/status', () => {

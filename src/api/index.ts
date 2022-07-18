@@ -1,6 +1,6 @@
 import express from "express";
-import users from './routes/users';
-import submissions from './routes/submissions';
+import users from './src/routes/users';
+import submissions from './src/routes/submissions';
 
 const api = express();
 
