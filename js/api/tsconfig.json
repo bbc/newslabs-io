@@ -4,7 +4,7 @@
     "module": "commonjs", /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
     "allowJs": true, /* Allow javascript files to be compiled. */
     "jsx": "react", /* Specify JSX code generation: 'preserve', 'react-native', 'react', 'react-jsx' or 'react-jsxdev'. */
-    "outDir": "./dist/api/", /* Redirect output structure to the directory. */
+    "outDir": "./dist/", /* Redirect output structure to the directory. */
     "rootDirs": [
       "./"
     ],
