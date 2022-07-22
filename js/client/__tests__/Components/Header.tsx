@@ -3,7 +3,7 @@
  */
 
 import { shallow } from 'enzyme';
-import { Header } from '../../../src/client/Components/Header';
+import { Header } from '../../src/Components/Header';
 
 describe('Header', () => {
   it("renders with the name of the app", () => {

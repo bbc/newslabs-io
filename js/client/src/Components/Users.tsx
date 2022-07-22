@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Box, Toolbar, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { User } from '../model';
+import { LOCAL_API_HOST } from '../util/constants';
 
 export function Users() {
   const [users, setUsers] = useState<User[]>([]);
@@ -9,7 +10,7 @@ export function Users() {
 
   useEffect(() => {
     async function fetchUsers() {
-      const res = await fetch('/api/users');
+      const res = await fetch(`${LOCAL_API_HOST}/api/users`);
       const userData = await res.json();
 
       setUsers(userData);

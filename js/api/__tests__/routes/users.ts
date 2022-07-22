@@ -1,6 +1,6 @@
 import request from 'supertest';
-import api from '../../../src/api/index';
-import * as db from '../../../src/api/db';
+import api from '../../index';
+import * as db from '../../src/db';
 
 describe('GET /users', () => {
 

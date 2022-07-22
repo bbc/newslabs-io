@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Box, Grid, Toolbar, Typography } from '@mui/material';
 import { Submission } from '../model';
 import SubmissionCard from './SubmissionCard';
+import { LOCAL_API_HOST } from '../util/constants';
 
 export function Submissions() {
   const [submissions, setSubmissions] = useState<Submission[]>([]);
@@ -10,7 +11,7 @@ export function Submissions() {
 
   useEffect(() => {
     async function fetchSubmissions() {
-      const res = await fetch('/api/submissions');
+      const res = await fetch(`${LOCAL_API_HOST}/api/submissions`);
       const submissionData = await res.json();
 
       setSubmissions(submissionData);
