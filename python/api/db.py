@@ -18,7 +18,10 @@ conn = sqlite3.connect(DB_PATH, check_same_thread=False)
 conn.row_factory = dict_factory
 
 
-def get_users_and_roles():
+def get_users_and_roles() -> list[User]:
+    """
+    Return a list of all users
+    """
     cursor = conn.cursor()
     cursor.execute(f"""
         SELECT username, created_at, users.id, role_id, description
@@ -29,7 +32,10 @@ def get_users_and_roles():
     cursor.close()
     return [User(**row) for row in results]
 
-def get_submissions_and_users():
+def get_submissions_and_users() -> list[Submission]:
+    """
+    Return a list of all submissions
+    """
     cursor = conn.cursor()
     cursor.execute(f"""
         SELECT submissions.id, title, text, submissions.created_at, user_id, username
@@ -40,7 +46,10 @@ def get_submissions_and_users():
     cursor.close()
     return [Submission(**row) for row in results]
 
-def get_submission_and_user(id: int):
+def get_submission_and_user(id: int) -> Submission:
+    """
+    Return a specific submission by its submission ID
+    """
     cursor = conn.cursor()
     cursor.execute(f"""
         SELECT submissions.id, title, text, submissions.created_at, user_id, username
