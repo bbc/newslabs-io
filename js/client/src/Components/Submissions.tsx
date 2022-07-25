@@ -11,7 +11,7 @@ export function Submissions() {
 
   useEffect(() => {
     async function fetchSubmissions() {
-      const res = await fetch(`${LOCAL_API_HOST}/api/submissions`);
+      const res = await fetch(`${LOCAL_API_HOST}/submissions`);
       const submissionData = await res.json();
 
       setSubmissions(submissionData);
