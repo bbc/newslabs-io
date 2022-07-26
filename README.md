@@ -117,6 +117,14 @@ The source code for this is in the `python/api` directory.
 
 This app includes a stand-alone FastAPI-based API server application.
 
+You'll need to initialise the database in the [sql/](sql) directory via the
+following commands run within the root of the repo:
+
+```console
+$ cat sql/createSchema.sql sql/createData.sql | sqlite3 sql/dev.db
+```
+
 #### start
 
-Start the server with `uvicorn main:app --port 8080`
+Start the server with `uvicorn main:app --port 8080` run from the
+[python/api/](python/api) directory.
