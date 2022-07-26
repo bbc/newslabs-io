@@ -10,7 +10,7 @@ export function Users() {
 
   useEffect(() => {
     async function fetchUsers() {
-      const res = await fetch(`${LOCAL_API_HOST}/api/users`);
+      const res = await fetch(`${LOCAL_API_HOST}/users`);
       const userData = await res.json();
 
       setUsers(userData);

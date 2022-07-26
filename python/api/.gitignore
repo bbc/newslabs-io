@@ -1,0 +1,5 @@
+*.pyc
+
+# virtual environments using name in README or the common "venv"
+venv
+nlio
