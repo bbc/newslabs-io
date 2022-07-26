@@ -3,7 +3,7 @@ import sqlite3
 from models import Submission, User
 
 
-DB_PATH = '../sql/dev.db'
+DB_PATH = '../../sql/dev.db'
 
 
 def dict_factory(cursor, row):
